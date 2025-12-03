@@ -8,11 +8,18 @@ body
 
 nav 
 {
-    background-color: #e7d9b1;
+    background-color: #4a1f24;
     position: sticky;
-    top: 0;
     width: 100%;
     height: 100%;
+}
+
+img
+{
+    height: 100%;
+    margin-left: 20px;
+    padding-top: 10px;
+    float: left;
 }
 
 .nav-links
@@ -21,10 +28,20 @@ nav
     margin: 0;
     padding: 0;
     overflow: hidden;
+    float: right;
 }
 
 li
 {
     display: inline-block;
-    margin-right: 20px;
+    margin-right: 40px;
+    padding-top: 55px;
+    font-size: larger;
+    font-weight: bold;
+}
+
+a
+{
+    text-decoration: none;
+    color: #e7d9b1;
 }
