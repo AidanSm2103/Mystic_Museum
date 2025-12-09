@@ -1,6 +1,5 @@
 body 
 {
-    
     background-color: #4a1f24;
     margin: 0;
     padding: 0;
@@ -9,7 +8,7 @@ body
 nav 
 {
     background-color: #4a1f24;
-    position: sticky;
+    
     width: 100%;
     height: 100%;
 }
@@ -44,4 +43,32 @@ a
 {
     text-decoration: none;
     color: #e7d9b1;
+}
+
+h1
+{
+    color: #e7d9b1;
+    text-align: center;
+    font-size: 2em;
+    padding-top: 200px;
+}
+
+p
+{
+    color: #e7d9b1;
+    text-align: center;
+    font-size: 1.2em;
+    padding-top: 20px;
+}
+
+button
+{
+    background-color: #e7d9b1;
+    color: #4a1f24;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
 }
