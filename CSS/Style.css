@@ -7,10 +7,9 @@ body
 
 nav 
 {
-    background-color: #4a1f24;
-    
+    background-color: #1b1412;
+    overflow: hidden;
     width: 100%;
-    height: 100%;
 }
 
 img
@@ -71,4 +70,49 @@ button
     cursor: pointer;
     display: block;
     margin: 0 auto;
+}
+
+.dust 
+{
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle at 20% 35%, rgba(255, 215, 150, 0.15) 2px, transparent 1px),
+    radial-gradient(circle at 85% 70%, rgba(255, 215, 150, 0.12) 2px, transparent 1px),
+    radial-gradient(circle at 51% 84%, rgba(255, 215, 150, 0.10) 2px, transparent 1px),
+    radial-gradient(circle at 59% 43%, rgba(255, 215, 150, 0.10) 2px, transparent 1px),
+    radial-gradient(circle at 10% 93%, rgba(255, 215, 150, 0.10) 2px, transparent 1px),
+    radial-gradient(circle at 32% 72%, rgba(255, 215, 150, 0.10) 2px, transparent 1px);
+  background-size: 200px 200px;
+  animation-timing-function: ease-in-out;
+  animation: 
+    dust-float-up 100s linear infinite,
+    dust-sway 12s ease-in-out infinite;
+}
+
+@keyframes dust-float-up 
+{
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 0 -1000px;
+  }
+}
+
+@keyframes dust-sway 
+{
+  0%
+  {
+    background-position-x: 0;
+  }
+  50% 
+  {
+    background-position-x: 40px;
+  }
+  100% 
+  {
+    background-position-x: 0;
+  }
 }
