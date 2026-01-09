@@ -51,6 +51,15 @@ li
     font-weight: bold;
 }
 
+.hero
+{
+  background: rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(188, 167, 112, 0.15);
+  border-radius: 60px;
+  padding: 20px;
+  margin: 200px 30% 200px;
+}
+
 a
 {
     text-decoration: none;
@@ -62,7 +71,6 @@ h1
     color: #e7d9b1;
     text-align: center;
     font-size: 2em;
-    padding-top: 200px;
 }
 
 p
