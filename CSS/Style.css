@@ -1,24 +1,24 @@
 body 
 {
-    background-color: #4a1f24;
-    margin: 0;
-    padding: 0;
+  background-color: #4a1f24;
+  margin: 0;
+  padding: 0;
 }
 
 nav 
 {
-    background-color: #1b1412;
-    overflow: hidden;
-    width: 100%;
+  background-color: #1b1412;
+  overflow: hidden;
+  width: 100%;
 }
 
 img
 {
-    height: 100%;
-    margin-left: 20px;
-    padding-top: 10px;
-    float: left;
-    animation: glow 10s ease-in-out infinite; 
+  height: 100%;
+  margin-left: 20px;
+  padding-top: 10px;
+  float: left;
+  animation: glow 10s ease-in-out infinite; 
 }
 
 @keyframes glow 
@@ -35,20 +35,20 @@ img
 
 .nav-links
 {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    float: right;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  float: right;
 }
 
 li
 {
-    display: inline-block;
-    margin-right: 40px;
-    padding-top: 55px;
-    font-size: larger;
-    font-weight: bold;
+  display: inline-block;
+  margin-right: 40px;
+  padding-top: 55px;
+  font-size: larger;
+  font-weight: bold;
 }
 
 .hero
@@ -62,35 +62,44 @@ li
 
 a
 {
-    text-decoration: none;
-    color: #e7d9b1;
+  text-decoration: none;
+  color: #e7d9b1;
 }
 
 h1
 {
-    color: #e7d9b1;
-    text-align: center;
-    font-size: 2em;
+  color: #e7d9b1;
+  text-align: center;
+  font-size: 2em;
 }
 
 p
 {
-    color: #e7d9b1;
-    text-align: center;
-    font-size: 1.2em;
-    padding-top: 20px;
+  color: #e7d9b1;
+  text-align: center;
+  font-size: 1.2em;
+  padding-top: 20px;
 }
 
 button
 {
-    background-color: #e7d9b1;
-    color: #4a1f24;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1em;
-    cursor: pointer;
-    display: block;
-    margin: 0 auto;
+  background-color: #e7d9b1;
+  color: #4a1f24;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+  transition: 
+    box-shadow 0.4s ease,
+    transform 0.4s ease;
+}
+
+button:hover 
+{
+  box-shadow: 0 0 22px rgba(212, 175, 55, 0.4);
+  transform: translateY(-1.5px);
 }
 
 .dust 
@@ -114,10 +123,12 @@ button
 
 @keyframes dust-float-up 
 {
-  from {
+  from 
+  {
     background-position: 0 0;
   }
-  to {
+  to 
+  {
     background-position: 0 -1000px;
   }
 }
