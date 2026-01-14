@@ -148,9 +148,22 @@ button:hover
 
 .about-content
 {
-  background: rgba(0, 0, 0, 0.15);
-  border: 1px solid rgba(188, 167, 112, 0.15);
-  border-radius: 60px;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(212,175,55,0.06), transparent 35%),
+    radial-gradient(circle at 80% 70%, rgba(212,175,55,0.05), transparent 40%);
+  background-color: rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(212,175,55,0.15);
+  position: relative;
   padding: 20px;
   margin: 100px 20% 200px;
+}
+
+.about-content::before 
+{
+  content: "";
+  position: absolute;
+  inset: 10px;
+  border-radius: inherit;
+  border: 1px solid rgba(212,175,55,0.08);
+  pointer-events: none;
 }
