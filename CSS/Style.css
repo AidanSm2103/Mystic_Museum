@@ -167,3 +167,55 @@ button:hover
   border: 1px solid rgba(212,175,55,0.08);
   pointer-events: none;
 }
+
+.artifact-gallery 
+{
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 160px;
+  justify-content: center;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 100px 0;
+  align-items: start;
+}
+
+.artifact-polaroid 
+{
+  background: #f4f1ea;
+  width: 220px;
+  padding: 16px 16px 36px;
+  border-radius: 4px;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.artifact-polaroid img 
+{
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+
+.artifact-polaroid figcaption 
+{
+  margin-top: 300px;
+  font-size: 0.85rem;
+  color: #5a4a3b;
+  letter-spacing: 0.05em;
+}
+
+.artifact-polaroid:nth-child(1) 
+{
+  transform: rotate(-4deg);
+}
+
+.artifact-polaroid:nth-child(2) 
+{
+  transform: rotate(3deg);
+}
+
+.artifact-polaroid:nth-child(3) 
+{
+  transform: rotate(-2.5deg);
+}
