@@ -1,3 +1,5 @@
+/*General Styles*/
+
 body 
 {
   background-color: #4a1f24;
@@ -50,6 +52,8 @@ li
   font-size: larger;
   font-weight: bold;
 }
+
+/*Home page*/
 
 .hero
 {
@@ -145,6 +149,7 @@ button:hover
   }
 }
 
+/*About page*/
 
 .about-content
 {
@@ -167,6 +172,8 @@ button:hover
   border: 1px solid rgba(212,175,55,0.08);
   pointer-events: none;
 }
+
+/*Artifacts page*/
 
 .artifact-gallery 
 {
