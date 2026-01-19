@@ -191,7 +191,7 @@ button:hover
 {
   background: #f4f1ea;
   width: 220px;
-  padding: 16px 16px 36px;
+  padding: 22px 22px 36px;
   border-radius: 4px;
   box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
   text-align: center;
@@ -208,8 +208,15 @@ button:hover
 {
   margin-top: 300px;
   font-size: 0.85rem;
+  font-weight: bold;
   color: #5a4a3b;
   letter-spacing: 0.05em;
+}
+
+.artifact-description 
+{
+  font-size: 0.80rem;
+  color: #7a6a5b;
 }
 
 .artifact-polaroid:nth-child(1) 
