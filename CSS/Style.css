@@ -222,14 +222,17 @@ button:hover
 .artifact-polaroid:nth-child(1) 
 {
   transform: rotate(-4deg);
+  will-change: transform;
 }
 
 .artifact-polaroid:nth-child(2) 
 {
   transform: rotate(3deg);
+  will-change: transform;
 }
 
 .artifact-polaroid:nth-child(3) 
 {
   transform: rotate(-2.5deg);
+  will-change: transform;
 }
