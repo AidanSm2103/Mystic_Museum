@@ -189,12 +189,29 @@ button:hover
 
 .artifact-polaroid 
 {
+  position: relative;
   background: #f4f1ea;
   width: 220px;
   padding: 22px 22px 36px;
   border-radius: 4px;
   box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
   text-align: center;
+}
+
+.artifact-polaroid::before 
+{
+  content: "";
+  position: absolute;
+  inset: -150px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 220, 150, 0.25) 0%,
+    rgba(255, 220, 150, 0.15) 35%,
+    rgba(255, 220, 150, 0.05) 55%,
+    transparent 70%
+  );
+  z-index: -1;
+  filter: blur(12px);
 }
 
 .artifact-polaroid img 
