@@ -1,2 +1,2 @@
 # Mystic_Museum
-This is a static website for a mystical museum that displays strange artifacts found by the institution.
+A static website for a mystical museum that displays strange artifacts. This is a personal project that I'm working on to improve my website building skills and experiment with HTML, CSS and Javascript. 
