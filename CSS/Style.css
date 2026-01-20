@@ -154,8 +154,8 @@ button:hover
 .about-content
 {
   background:
-    radial-gradient(circle at 20% 30%, rgba(212,175,55,0.06), transparent 35%),
-    radial-gradient(circle at 80% 70%, rgba(212,175,55,0.05), transparent 40%);
+    radial-gradient(circle at 20% 30%, rgba(212,175,55,0.06), transparent 45%),
+    radial-gradient(circle at 80% 70%, rgba(212,175,55,0.05), transparent 50%);
   background-color: rgba(0, 0, 0, 0.15);
   border: 1px solid rgba(212,175,55,0.15);
   position: relative;
@@ -171,6 +171,21 @@ button:hover
   border-radius: inherit;
   border: 1px solid rgba(212,175,55,0.08);
   pointer-events: none;
+}
+
+.about-heading
+{
+  color: #e7d9b1;
+  text-align: center;
+  margin-top: 0;
+}
+
+.about-text
+{
+  color: #e7d9b1;
+  font-size: 1.2em;
+  line-height: 1.6em;
+  text-align: center;
 }
 
 /*Artifacts page*/
