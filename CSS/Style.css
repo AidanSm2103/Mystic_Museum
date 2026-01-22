@@ -55,6 +55,8 @@ li
 
 .interactive-rune 
 {
+  width: 60px;
+  height: 60px;
   cursor: pointer;
   transition:
     transform 0.4s ease,
@@ -222,7 +224,23 @@ button:hover
   text-align: center;
 }
 
+.hidden-lore3 
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
 /*Artifacts page*/
+
+.hidden-lore2 
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
 
 .artifact-gallery 
 {
