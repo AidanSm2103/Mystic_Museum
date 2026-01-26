@@ -122,14 +122,13 @@ button:hover
   transform: translateY(-1.5px);
 }
 
-.hidden-lore 
+.hidden-lore
 {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   margin-top: 30px;
-  opacity: 0;
   max-height: 0;
   overflow: hidden;
   transition:
@@ -137,9 +136,22 @@ button:hover
     max-height 0.8s ease;
 }
 
-.home-intro:focus-within .hidden-lore {
+.hidden 
+{
+  max-height: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.visible
+{
   opacity: 1;
   max-height: 200px;
+  pointer-events: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .dust 

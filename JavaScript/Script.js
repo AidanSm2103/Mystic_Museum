@@ -1,4 +1,15 @@
 
+const revealBtn = document.getElementById('reveal-btn');
+const hiddenLore = document.getElementById('hidden-lore');
+
+if (revealBtn) 
+  {
+    revealBtn.addEventListener('click', () => {
+      hiddenLore.classList.remove('hidden');
+      hiddenLore.classList.add('visible');
+    });
+  }
+
 const rune1 = document.getElementById('reliquary-rune');
 const artifact1 = document.getElementById('reliquary-artifact');
 
