@@ -1,3 +1,8 @@
+/*
+localStorage.removeItem('reliquaryUnlocked');
+localStorage.removeItem('astrolabeUnlocked');
+localStorage.removeItem('sigilUnlocked');
+*/
 
 const revealBtn = document.getElementById('reveal-btn');
 const hiddenLore = document.getElementById('hidden-lore');
@@ -27,13 +32,13 @@ if (rune1)
     }
 
     if (artifact1 && localStorage.getItem('reliquaryUnlocked') === 'true')
-        {
-        const currentSrc = artifact1.src;
-        const altSrc = artifact1.getAttribute('data-alt');
+      {
+      const currentSrc = artifact1.src;
+      const altSrc = artifact1.getAttribute('data-alt');
 
-        artifact1.src = altSrc;
-        artifact1.setAttribute('data-alt', currentSrc);
-        }
+      artifact1.src = altSrc;
+      artifact1.setAttribute('data-alt', currentSrc);
+      }
 
 if (rune2)
     {   
@@ -42,7 +47,7 @@ if (rune2)
   });
 }
 
-if (artifact2 && localStorage.getItem('astrolabeUnlocked') === 'true')
+  if (artifact2 && localStorage.getItem('astrolabeUnlocked') === 'true')
     {
     const currentSrc = artifact2.src;
     const altSrc = artifact2.getAttribute('data-alt');
@@ -58,11 +63,11 @@ if (rune3)
   });
     }
 
-     if (artifact3 && localStorage.getItem('sigilUnlocked') === 'true') 
-        {
-            const currentSrc = artifact3.src;
-            const altSrc = artifact3.getAttribute('data-alt');
+  if (artifact3 && localStorage.getItem('sigilUnlocked') === 'true') 
+    {
+      const currentSrc = artifact3.src;
+      const altSrc = artifact3.getAttribute('data-alt');
 
-            artifact3.src = altSrc;
-            artifact3.setAttribute('data-alt', currentSrc);
-        }
+      artifact3.src = altSrc;
+      artifact3.setAttribute('data-alt', currentSrc);
+    }
