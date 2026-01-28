@@ -5,13 +5,12 @@ localStorage.removeItem('sigilUnlocked');
 */
 
 const revealBtn = document.getElementById('reveal-btn');
-const hiddenLore = document.getElementById('hidden-lore');
+const hiddenLore = document.querySelector('.hidden-lore');
 
 if (revealBtn) 
   {
     revealBtn.addEventListener('click', () => {
-      hiddenLore.classList.remove('hidden');
-      hiddenLore.classList.add('visible');
+      hiddenLore.classList.toggle('is-visible');
     });
   }
 

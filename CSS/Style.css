@@ -131,19 +131,14 @@ button:hover
   margin-top: 30px;
   max-height: 0;
   overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
   transition:
     opacity 0.8s ease,
     max-height 0.8s ease;
 }
 
-.hidden 
-{
-  max-height: 0;
-  opacity: 0;
-  pointer-events: none;
-}
-
-.visible
+.hidden-lore.is-visible
 {
   opacity: 1;
   max-height: 200px;
