@@ -36,3 +36,15 @@ document.querySelectorAll('.interactive-rune').forEach(rune => {
   });
 });   
 
+if (document.querySelector('.reset-artifacts')) 
+  {
+  document.querySelector('.reset-artifacts').addEventListener('click', () => {
+    localStorage.setItem("reliquary-unlocked", "false");
+    localStorage.setItem("astrolabe-unlocked", "false");
+    localStorage.setItem("sigil-unlocked", "false");
+    
+    updateArtifactImages();
+  }
+);
+}
+

@@ -327,3 +327,54 @@ button:hover
   transform: rotate(-2.5deg);
   will-change: transform;
 }
+
+.reset-artifacts 
+{
+  background:
+    radial-gradient(circle at 20% 30%, rgba(212,175,55,0.06), transparent 45%),
+    radial-gradient(circle at 80% 70%, rgba(212,175,55,0.05), transparent 50%);
+  background-color: rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(212,175,55,0.15);
+  margin-bottom: 100px;
+  display: flex;
+  align-items: center;
+  gap: 0.75em;
+  padding-bottom: 15px;
+  transition: 
+    box-shadow 0.6s ease,
+    transform 0.6s ease;
+}
+
+.reset-artifacts:hover 
+{
+  box-shadow: 0 0 22px rgba(160, 55, 55, 0.6);
+  transform: translateY(-1.5px);
+}
+
+.reset-icon 
+{
+  height: 80px;
+  width: 80px;
+  float: left;
+  animation: breathing 10s ease-in-out infinite; 
+}
+
+@keyframes breathing 
+{
+  0%, 100% 
+  {
+    filter: drop-shadow(0 0 8px rgba(160, 55, 55, 0.6));
+  }
+  50% 
+  {
+    filter: drop-shadow(0 0 12px rgba(233, 76, 76, 0.767));
+  }
+}
+
+.reset-text 
+{
+  margin-top: 10px;
+  padding-right: 20px;
+  color: black;
+  text-shadow: rgba(160, 55, 55, 0.6) 0 0 8px;
+}
