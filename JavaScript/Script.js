@@ -1,9 +1,5 @@
 
-/*
-localStorage.setItem("reliquary-unlocked", "false");
-localStorage.setItem("astrolabe-unlocked", "false");
-localStorage.setItem("sigil-unlocked", "false");
-*/
+const originalArtifactSrcs = {};
 const revealBtn = document.getElementById('reveal-btn');
 const hiddenLore = document.querySelector('.hidden-lore');
 
@@ -19,9 +15,15 @@ function updateArtifactImages()
   document.querySelectorAll('[id$="-artifact"]').forEach(img => {
     const key = img.id.replace('-artifact', '');
 
+    if (!originalArtifactSrcs[key]) {
+      originalArtifactSrcs[key] = img.src;
+    }
+
     if (localStorage.getItem(`${key}-unlocked`) === 'true') {
       img.src = img.dataset.unlocked;
-  }
+    } else {
+      img.src = originalArtifactSrcs[key];
+    }
 });
 }
 
@@ -42,7 +44,7 @@ if (document.querySelector('.reset-artifacts'))
     localStorage.setItem("reliquary-unlocked", "false");
     localStorage.setItem("astrolabe-unlocked", "false");
     localStorage.setItem("sigil-unlocked", "false");
-    
+
     updateArtifactImages();
   }
 );
