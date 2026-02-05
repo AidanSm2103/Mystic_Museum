@@ -270,6 +270,12 @@ p
   border-radius: 4px;
   box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
   text-align: center;
+  transition: filter 0.4s ease;
+}
+
+.artifact-polaroid.drained
+{
+  filter: grayscale(40%);
 }
 
 .artifact-polaroid::before 
@@ -331,6 +337,7 @@ p
 .reset-artifacts 
 {
   margin: 0 auto;
+  border-radius: 100%;
   border: none;
   cursor: pointer;
   background-color: #4a1f24;
@@ -339,13 +346,13 @@ p
   align-items: center;
   gap: 0.75em;
   padding-bottom: 15px;
-  transition: 
-    transform 0.6s ease;
+  transition: transform 1s ease, opacity 1s ease;
 }
 
 .reset-artifacts:hover 
 {
-  transform: translateY(-1.5px);
+  transform: translateY(-2px);
+  opacity: 0.5;
 }
 
 .reset-icon 
@@ -353,7 +360,7 @@ p
   height: 60px;
   width: 40px;
   float: left;
-  animation: breathing 10s ease-in-out infinite; 
+  animation: breathing 10s ease-in-out infinite;
 }
 
 @keyframes breathing 

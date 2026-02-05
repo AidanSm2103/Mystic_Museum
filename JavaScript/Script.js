@@ -1,5 +1,7 @@
 
 const originalArtifactSrcs = {};
+const resetBtn = document.querySelector('.reset-artifacts');
+const polaroids = document.querySelectorAll('.artifact-polaroid');
 const revealBtn = document.getElementById('reveal-btn');
 const hiddenLore = document.querySelector('.hidden-lore');
 
@@ -38,9 +40,9 @@ document.querySelectorAll('.interactive-rune').forEach(rune => {
   });
 });   
 
-if (document.querySelector('.reset-artifacts')) 
-  {
-  document.querySelector('.reset-artifacts').addEventListener('click', () => {
+if (resetBtn) 
+{
+  resetBtn.addEventListener('click', () => {
     localStorage.setItem("reliquary-unlocked", "false");
     localStorage.setItem("astrolabe-unlocked", "false");
     localStorage.setItem("sigil-unlocked", "false");
@@ -50,3 +52,14 @@ if (document.querySelector('.reset-artifacts'))
 );
 }
 
+resetBtn.addEventListener('mouseenter', () => {
+  polaroids.forEach(polaroid => {
+    polaroid.classList.add('drained');
+  });
+});
+
+resetBtn.addEventListener('mouseleave', () => {
+  polaroids.forEach(polaroid => {
+    polaroid.classList.remove('drained');
+  });
+});
