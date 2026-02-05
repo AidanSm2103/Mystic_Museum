@@ -69,6 +69,23 @@ li
   transform: scale(1.05);
 }
 
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #311215;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(140, 40, 50, 0.55);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(150, 30, 45, 0.7);
+}
+
 /*Home page*/
 
 .hero
