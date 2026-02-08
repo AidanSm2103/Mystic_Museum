@@ -31,6 +31,10 @@ The Mystic Museum allows users to explore a collection of mysterious artifacts. 
 
 ---
 
+## ✦ Image Creation & Tools
+
+The artifact illustrations in Mystic Museum were created with the assistance of AI image-generation tools and then curated, edited, and integrated manually into the site. AI was used strictly as a visual aid for concept and asset generation, not for application logic or site structure.
+
 ## ✦ Design Philosophy
 
 Mystic Museum was designed around the following core principles:
