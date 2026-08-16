@@ -1,0 +1,15 @@
+<header>
+  <a class="brand" href="/">
+    <div class="brand-ring"></div>
+    <div class="wordmark">MYSTIC MUSEUM</div>
+  </a>
+  <div class="header-right">
+    <nav>
+      <a href="/" class="<%= active === 'home' ? 'active' : '' %>">Home</a>
+      <a href="/exhibits" class="<%= active === 'exhibits' ? 'active' : '' %>">Exhibits</a>
+      <a href="/about" class="<%= active === 'about' ? 'active' : '' %>">About</a>
+      <a href="/notes" class="<%= active === 'notes' ? 'active' : '' %>">Curator's Notes</a>
+    </nav>
+    <span class="rune-counter">RUNES FOUND: <b><%= unlockedCount %></b> / <%= totalArtifacts %></span>
+  </div>
+</header>
