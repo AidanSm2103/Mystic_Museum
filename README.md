@@ -37,7 +37,7 @@ public/                served statically — css, js
 seed.js                run once to populate the DB
 ```
 
-## Known limitations / what I'd change for production
+## Known limitations / What I'd change for production
 
 - Sessions use the default in-memory store — fine for local dev, but it resets on every server restart and won't work if you ever run more than one server instance. `connect-mongo` is the natural upgrade (store sessions in the same MongoDB database).
 - No caching on the artifact list — `siteContext` re-queries MongoDB on every single request. With only 8 documents this is trivial, but at any real scale you'd cache it.
