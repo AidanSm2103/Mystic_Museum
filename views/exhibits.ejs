@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" data-corruption="<%= corruptionLevel %>">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title><%= title %></title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<div class="static-layer"></div>
+<div class="dust"></div>
+
+<%- include('partials/header', { active: 'exhibits' }) %>
+
+<% if (!isUnlocked('loom')) { %>
+  <form method="POST" action="/unlock/loom">
+    <button type="submit" class="rune-hidden" style="top:14px; left:2px; width:22px; height:22px; position:absolute;" aria-label="A faint rune. Something is carved here."><%- runeSVG(artifactsBySlug['loom'].runeKey, 'var(--gold-bright)') %></button>
+  </form>
+<% } %>
+
+<div class="page-head">
+  <p class="verse">Stars turn where sight ends cold,</p>
+</div>
+
+<div class="exhibits">
+  <% artifacts.forEach(function(a) { %>
+    <% if (isUnlocked(a.slug)) { %>
+      <a class="card" href="/exhibits/<%= a.slug %>">
+        <span class="card-tag">SPECIMEN NO. <%= a.no %></span>
+        <div class="art-slot"><%- runeSVG(a.runeKey) %></div>
+        <h3><%= a.name %></h3>
+        <p><%= a.teaser %></p>
+        <span class="view-link">VIEW ARTIFACT →</span>
+      </a>
+    <% } else { %>
+      <div class="card sealed">
+        <span class="card-tag">SPECIMEN NO. <%= a.no %></span>
+        <div class="art-slot"><%- runeSVG(a.runeKey) %></div>
+        <h3>SEALED</h3>
+        <p>A rune elsewhere in the museum still holds this closed.</p>
+      </div>
+    <% } %>
+  <% }); %>
+</div>
+
+<% if (!isUnlocked('mirror')) { %>
+  <form method="POST" action="/unlock/mirror" style="text-align:center;">
+    <button type="submit" class="rune-hidden" style="position:relative; display:inline-block; width:30px; height:30px; margin-bottom:60px;" aria-label="A faint rune. Something is carved here."><%- runeSVG(artifactsBySlug['mirror'].runeKey, 'var(--gold-bright)') %></button>
+  </form>
+<% } %>
+
+<%- include('partials/footer') %>
+
+</body>
+</html>

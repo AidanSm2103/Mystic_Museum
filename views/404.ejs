@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" data-corruption="<%= typeof corruptionLevel !== 'undefined' ? corruptionLevel : 0 %>">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title><%= title %></title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<div class="static-layer"></div>
+<div class="dust"></div>
+
+<%- include('partials/header', { active: '' }) %>
+
+<div class="sealed-detail">
+  <h2>This page does not exist in the catalogue.</h2>
+  <p>Whatever you were looking for isn't here — or isn't ready to be found yet.</p>
+  <a class="cta ghost" href="/">← Return Home</a>
+</div>
+
+<%- include('partials/footer') %>
+
+</body>
+</html>

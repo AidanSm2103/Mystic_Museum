@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" data-corruption="<%= corruptionLevel %>">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title><%= title %></title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<div class="static-layer"></div>
+<div class="dust"></div>
+
+<%- include('partials/header', { active: 'home' }) %>
+
+<section class="hero">
+  <svg class="hero-rune" viewBox="0 0 200 260" xmlns="http://www.w3.org/2000/svg">
+    <g stroke="#e8c873" stroke-width="2.5" fill="none" stroke-linecap="round">
+      <line x1="100" y1="20" x2="100" y2="240"/>
+      <line x1="100" y1="60" x2="160" y2="20"/>
+      <line x1="100" y1="60" x2="40" y2="20"/>
+      <line x1="100" y1="130" x2="150" y2="90"/>
+      <line x1="100" y1="130" x2="50" y2="90"/>
+    </g>
+  </svg>
+
+  <div class="hero-content">
+    <span class="eyebrow">MUS. ARCANA — CATALOGUE UNSTABLE</span>
+    <h1 class="title">The <span class="accent">Mystic</span> Museum</h1>
+    <p class="verse">Reveal the unseen. Gold sleeps around old gods, and something in these halls remembers you looking.</p>
+    <a href="/exhibits" class="cta">Step Inside</a>
+  </div>
+
+  <% if (!isUnlocked('crown')) { %>
+    <form method="POST" action="/unlock/crown">
+      <button type="submit" class="rune-hidden" style="left:6%; bottom:8%;" aria-label="A faint rune. Something is carved here."><%- runeSVG(artifactsBySlug['crown'].runeKey, 'var(--gold-bright)') %></button>
+    </form>
+  <% } %>
+</section>
+
+<div class="lore center">
+  <h3>Eight Specimens. Eight Seals.</h3>
+  <p>Every artifact in this collection has been sealed behind a rune. The runes are not on the artifacts themselves — they are hidden throughout the museum, waiting to be noticed.</p>
+  <p class="final-line">Look closely. The building is watching you look.</p>
+</div>
+
+<% if (!isUnlocked('ledger')) { %>
+  <form method="POST" action="/unlock/ledger" style="text-align:center;">
+    <button type="submit" class="rune-hidden" style="position:relative; display:inline-block; width:20px; height:20px; margin-bottom:40px;" aria-label="A faint rune. Something is carved here."><%- runeSVG(artifactsBySlug['ledger'].runeKey, 'var(--gold-bright)') %></button>
+  </form>
+<% } %>
+
+<%- include('partials/footer') %>
+
+</body>
+</html>

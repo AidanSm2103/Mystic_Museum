@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" data-corruption="<%= corruptionLevel %>">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title><%= title %></title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<div class="static-layer"></div>
+<div class="dust"></div>
+
+<%- include('partials/header', { active: 'about' }) %>
+
+<div class="page-head">
+  <h2>About Mystic Museum</h2>
+</div>
+
+<div class="lore" style="margin-top:30px; position:relative;">
+  <p>The Mystic Museum is dedicated to preserving and showcasing the hidden history and culture of mysticism and the supernatural. Our exhibits feature artifacts of great power and importance — some of which could threaten the balance of this world, should they fall into the wrong hands.</p>
+
+  <h3 style="margin-top:34px;">Our Founder</h3>
+  <p>Our founder, Dr. Archie Lockheart, was a renowned historian, mystic, and occultist. He spent his life uncovering secrets that lie beyond the veil. He tragically passed away in 1969 under mysterious circumstances — police ruled it a suicide, but many believe there was more to the story.</p>
+
+  <h3 style="margin-top:34px;">Our Philosophy</h3>
+  <p style="text-align:center;">Preserve those that came before us. Protect those that come after us.</p>
+
+  <h3 style="margin-top:34px;">The Runes</h3>
+  <p>Our artifacts contain great power. For this reason, they have been placed under a protective seal. Those with a keen eye may find the runes scattered throughout this museum to lift each seal and behold what lies beneath.</p>
+
+  <p class="final-line">Truth breathes when silence listens.</p>
+
+  <% if (!isUnlocked('reliquary')) { %>
+    <form method="POST" action="/unlock/reliquary">
+      <button type="submit" class="rune-hidden" style="position:absolute; top:8px; right:8px; width:22px; height:22px;" aria-label="A faint rune. Something is carved here."><%- runeSVG(artifactsBySlug['reliquary'].runeKey, 'var(--gold-bright)') %></button>
+    </form>
+  <% } %>
+</div>
+
+<% if (!isUnlocked('sigil')) { %>
+  <form method="POST" action="/unlock/sigil" style="text-align:center;">
+    <button type="submit" class="rune-hidden" style="position:relative; display:inline-block; width:26px; height:26px; margin-bottom:60px;" aria-label="A faint rune. Something is carved here."><%- runeSVG(artifactsBySlug['sigil'].runeKey, 'var(--gold-bright)') %></button>
+  </form>
+<% } %>
+
+<%- include('partials/footer') %>
+
+</body>
+</html>

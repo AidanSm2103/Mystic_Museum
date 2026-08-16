@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" data-corruption="<%= corruptionLevel %>">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title><%= title %></title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<div class="static-layer"></div>
+<div class="dust"></div>
+
+<%- include('partials/header', { active: 'notes' }) %>
+
+<% if (!isUnlocked('astrolabe')) { %>
+  <form method="POST" action="/unlock/astrolabe">
+    <button type="submit" class="rune-hidden" style="position:absolute; top:16px; right:2px; width:22px; height:22px;" aria-label="A faint rune. Something is carved here."><%- runeSVG(artifactsBySlug['astrolabe'].runeKey, 'var(--gold-bright)') %></button>
+  </form>
+<% } %>
+
+<div class="page-head">
+  <h2>Curator's Notes</h2>
+  <p class="verse">From the private journal of Dr. Archie Lockheart</p>
+</div>
+
+<div class="journal">
+  <% artifacts.forEach(function(a) { %>
+    <% if (isUnlocked(a.slug)) { %>
+      <div class="entry">
+        <span class="entry-tag">ENTRY <%= a.no %> — RE: <%= a.name.toUpperCase() %></span>
+        <p><%= a.curatorNote %> — A.L.</p>
+      </div>
+    <% } else { %>
+      <div class="entry locked">
+        <span class="entry-tag">ENTRY <%= a.no %> — REDACTED</span>
+        <p>This page has been sealed. It will unseal once Specimen No. <%= a.no %> is found.</p>
+      </div>
+    <% } %>
+  <% }); %>
+</div>
+
+<% if (!isUnlocked('ember')) { %>
+  <form method="POST" action="/unlock/ember" style="text-align:center;">
+    <button type="submit" class="rune-hidden" style="position:relative; display:inline-block; width:28px; height:28px; margin-bottom:60px;" aria-label="A faint rune. Something is carved here."><%- runeSVG(artifactsBySlug['ember'].runeKey, 'var(--gold-bright)') %></button>
+  </form>
+<% } %>
+
+<%- include('partials/footer') %>
+
+</body>
+</html>

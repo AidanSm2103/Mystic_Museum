@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" data-corruption="<%= corruptionLevel %>">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title><%= title %></title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<div class="static-layer"></div>
+<div class="dust"></div>
+
+<%- include('partials/header', { active: 'exhibits' }) %>
+
+<div class="detail-wrap">
+  <% if (unlocked) { %>
+    <span class="detail-tag">SPECIMEN NO. <%= artifact.no %> — UNSEALED</span>
+    <h2><%= artifact.name %></h2>
+    <div class="detail-art"><%- runeSVG(artifact.runeKey) %></div>
+    <p class="body-text"><%= artifact.description %></p>
+    <a class="back-link" href="/exhibits">← Return to Exhibits</a>
+  <% } else { %>
+    <div class="sealed-detail">
+      <div class="glyph"><%- runeSVG(artifact.runeKey, 'var(--dread-bright)') %></div>
+      <h2>Specimen No. <%= artifact.no %> remains sealed.</h2>
+      <p>Find its rune elsewhere in the museum before it can be viewed.</p>
+      <a class="cta ghost" href="/exhibits">← Return to Exhibits</a>
+    </div>
+  <% } %>
+</div>
+
+<%- include('partials/footer') %>
+
+</body>
+</html>
