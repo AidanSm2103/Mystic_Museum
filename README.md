@@ -5,9 +5,10 @@ An Express / EJS / MongoDB rebuild of the original static Mystic Museum site.
 ## Setup
 
 1. `npm install`
-2. `npm run seed` — wipes and re-inserts the 8 artifacts into your database.
-3. `npm start` (or `npm run dev` if you have `nodemon` installed, for auto-restart on file changes).
-4. Visit `http://localhost:3000`.
+2. Copy `.env.example` to `.env` and fill in your own values (a local MongoDB URI works fine — see `MONGODB_URI` in `.env.example`)
+3. `npm run seed` — wipes and re-inserts the 8 artifacts into your database
+4. `npm start` (or `npm run dev`, which uses nodemon for auto-restart on file changes — already included as a dev dependency)
+5. Visit `http://localhost:3000`.
 
 ## How the scavenger hunt works
 
