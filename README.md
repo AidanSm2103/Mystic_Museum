@@ -8,7 +8,8 @@
 ![Express](https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white)
 ![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
 ![EJS](https://img.shields.io/badge/EJS-B4CA65?style=for-the-badge&logo=ejs&logoColor=black)
-![Status](https://img.shields.io/badge/status-in%20development-8f2a2a?style=for-the-badge)
+![Tests](https://img.shields.io/badge/tests-passing-4f6156?style=for-the-badge)
+![License](https://img.shields.io/badge/license-MIT-c9a24a?style=for-the-badge)
 
 </div>
 
@@ -27,7 +28,9 @@ This started as a static HTML/CSS/JS site and was rebuilt from the ground up as 
 - [How the Scavenger Hunt Works](#-how-the-scavenger-hunt-works)
 - [The Collection](#-the-collection)
 - [Project Structure](#-project-structure)
-- [Known Limitations](#-known-limitations--what-id-change-for-production)
+- [Testing](#-testing)
+- [Deployment](#-deployment)
+- [License](#-license)
 - [Author](#-author)
 
 ## 🛠️ Tech Stack
@@ -38,7 +41,8 @@ This started as a static HTML/CSS/JS site and was rebuilt from the ground up as 
 | Server / Routing | Express |
 | Templating | EJS |
 | Database | MongoDB + Mongoose |
-| Session state | express-session |
+| Session state | express-session + connect-mongo |
+| Testing | Jest + Supertest |
 | Styling | Vanilla CSS (no framework) |
 
 ## 🚀 Setup
@@ -51,7 +55,7 @@ This started as a static HTML/CSS/JS site and was rebuilt from the ground up as 
 
 ## 🔮 How the Scavenger Hunt Works
 
-There's no login system — progress is tracked per-visitor via `express-session`, stored server-side against a cookie. Each hidden rune is a real `<form method="POST">` sitting somewhere on a page (see the `<% if (!isUnlocked(...)) %>` blocks in the `.ejs` files). Submitting it:
+There's no login system — progress is tracked per-visitor via `express-session`, persisted server-side in MongoDB (via `connect-mongo`) against a cookie, so it survives a server restart. Each hidden rune is a real `<form method="POST">` sitting somewhere on a page (see the `<% if (!isUnlocked(...)) %>` blocks in the `.ejs` files). Submitting it:
 
 1. Hits `POST /unlock/:slug` (`routes/unlock.js`)
 2. Adds that artifact's slug to `req.session.unlocked`
@@ -59,7 +63,7 @@ There's no login system — progress is tracked per-visitor via `express-session
 
 Because it's a real form post rather than a `fetch()` call, the hunt works even with JavaScript disabled — the JS in `public/js/main.js` is only there for the dust animation and the "found" toast, both cosmetic.
 
-Every request runs through `middleware/siteContext.js`, which loads all artifacts and works out the corruption level from how many are unlocked, then hands both to every view via `res.locals`.
+Every request runs through `middleware/siteContext.js`, which loads all artifacts (via a short-lived in-memory cache in `services/artifactService.js`, so we're not hitting MongoDB on every single request) and works out the corruption level from how many are unlocked, then hands both to every view via `res.locals`.
 
 > **Testing tip:** there's a **"SHOW RUNE HINTS"** button in the bottom-right corner of every page (from `public/js/main.js`) that outlines every unfound rune's hitbox. Handy while building — remove it before calling this "done."
 
@@ -84,23 +88,37 @@ Every request runs through `middleware/siteContext.js`, which loads all artifact
 ## 🗂️ Project Structure
 
 ```
-config/db.js                  MongoDB connection
-models/Artifact.js            Mongoose schema
-services/artifactService.js   query layer between routes and the model
-middleware/siteContext.js     loads data + hunt state onto res.locals for every request
-routes/                       one file per resource (pages, exhibits, notes, unlock)
-utils/runeSvg.js              generates the little line-art rune icons
-views/                        EJS templates + partials/header.ejs, partials/footer.ejs
-public/                       served statically — css, js
-seed.js                       run once to populate the DB
+app.js                         Express app setup (no listen() — importable by tests)
+server.js                      connects to MongoDB, then starts app.js listening
+config/db.js                   MongoDB connection
+models/Artifact.js             Mongoose schema
+services/artifactService.js    query layer between routes and the model, with a TTL cache
+middleware/siteContext.js      loads data + hunt state onto res.locals for every request
+routes/                        one file per resource (pages, exhibits, notes, unlock)
+utils/runeSvg.js               generates the little line-art rune icons
+views/                         EJS templates + partials/header.ejs, partials/footer.ejs
+public/                        served statically — css, js
+tests/                         Jest + Supertest route tests
+seed.js                        run once to populate the DB
 ```
 
-## ⚠️ Known Limitations / What I'd Change for Production
+## 🧪 Testing
 
-- Sessions use the default in-memory store — fine for local dev, but it resets on every server restart and won't work if you ever run more than one server instance. `connect-mongo` is the natural upgrade (store sessions in the same MongoDB database).
-- No caching on the artifact list — `siteContext` re-queries MongoDB on every single request. With only 8 documents this is trivial, but at any real scale you'd cache it.
-- No tests. Worth adding a few with `supertest` if this grows.
-- Not yet deployed — currently runs locally only.
+```bash
+npm test
+```
+
+Runs a Jest + Supertest suite covering the main routes (static pages, exhibits gallery, artifact detail sealed/unsealed states, the unlock POST flow, 404 handling). Tests mock the database layer (`services/artifactService.js`) rather than hitting a real MongoDB instance, so they run fast and don't need any setup beyond `npm install`.
+
+This is intentionally a route/integration test layer, not a full test of the Mongoose queries themselves — a real database-backed integration test would be the natural next addition.
+
+## 🌐 Deployment
+
+Deployed on [Render](https://render.com) (free tier) with [MongoDB Atlas](https://www.mongodb.com/atlas) as the database. Build command: `npm install`. Start command: `npm start`. Environment variables (`MONGODB_URI`, `SESSION_SECRET`, `NODE_ENV=production`) are set in the Render dashboard, not committed to the repo.
+
+## 📄 License
+
+MIT — see [LICENSE](./LICENSE). Use it, learn from it, fork it, just don't claim you wrote it.
 
 ## ✍️ Author
 
