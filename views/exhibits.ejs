@@ -13,12 +13,6 @@
 
 <%- include('partials/header', { active: 'exhibits' }) %>
 
-<% if (!isUnlocked('loom')) { %>
-  <form method="POST" action="/unlock/loom">
-    <button type="submit" class="rune-hidden" style="top:14px; left:2px; width:22px; height:22px; position:absolute;" aria-label="A faint rune. Something is carved here."><%- runeSVG(artifactsBySlug['loom'].runeKey, 'var(--gold-bright)') %></button>
-  </form>
-<% } %>
-
 <div class="page-head">
   <p class="verse">Stars turn where sight ends cold,</p>
 </div>

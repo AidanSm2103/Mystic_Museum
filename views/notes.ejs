@@ -13,12 +13,6 @@
 
 <%- include('partials/header', { active: 'notes' }) %>
 
-<% if (!isUnlocked('astrolabe')) { %>
-  <form method="POST" action="/unlock/astrolabe">
-    <button type="submit" class="rune-hidden" style="position:absolute; top:16px; right:2px; width:22px; height:22px;" aria-label="A faint rune. Something is carved here."><%- runeSVG(artifactsBySlug['astrolabe'].runeKey, 'var(--gold-bright)') %></button>
-  </form>
-<% } %>
-
 <div class="page-head">
   <h2>Curator's Notes</h2>
   <p class="verse">From the private journal of Dr. Archie Lockheart</p>
