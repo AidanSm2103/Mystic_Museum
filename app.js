@@ -11,6 +11,7 @@ const pageRoutes = require('./routes/pages');
 const exhibitRoutes = require('./routes/exhibits');
 const noteRoutes = require('./routes/notes');
 const unlockRoutes = require('./routes/unlock');
+const resetRoutes = require('./routes/reset');
 
 const app = express();
 
@@ -59,6 +60,7 @@ app.use('/', pageRoutes);
 app.use('/exhibits', exhibitRoutes);
 app.use('/notes', noteRoutes);
 app.use('/unlock', unlockRoutes);
+app.use('/reset', resetRoutes);
 
 // ---------- error handling ----------
 app.use((req, res) => {

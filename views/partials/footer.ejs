@@ -1,3 +1,22 @@
+<% if (unlockedCount > 0) { %>
+  <div class="rite-anew">
+    <form id="reset-form" method="POST" action="/reset">
+      <button type="submit" class="rite-link">Begin the Rite anew</button>
+    </form>
+  </div>
+
+  <div class="modal-overlay" id="reset-modal" hidden>
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="reset-modal-title">
+      <h3 id="reset-modal-title">Burn the Collection?</h3>
+      <p>This will scatter every rune you've found back into shadow. The seals will hold once more, and Curator's Notes will fall silent again.</p>
+      <div class="modal-actions">
+        <button type="button" class="cta ghost" id="reset-cancel">Leave It Sealed</button>
+        <button type="button" class="cta" id="reset-confirm">Yes, Begin Anew</button>
+      </div>
+    </div>
+  </div>
+<% } %>
+
 <footer class="site-footer">MYSTIC MUSEUM — EST. UNKNOWN</footer>
 
 <div class="eldritch-banner <%= corruptionLevel >= 4 ? 'show' : '' %>">IT REMEMBERS YOU LOOKING</div>

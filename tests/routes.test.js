@@ -83,6 +83,25 @@ describe('unlock flow', () => {
   });
 });
 
+describe('reset flow', () => {
+  test('POST /reset redirects with a reset query param', async () => {
+    const res = await request(app).post('/reset').set('Referer', '/about');
+    expect(res.status).toBe(302);
+    expect(res.headers.location).toBe('/about?reset=1');
+  });
+
+  test('resetting clears previously unlocked artifacts', async () => {
+    const agent = request.agent(app);
+    await agent.post('/unlock/reliquary').set('Referer', '/exhibits');
+    let res = await agent.get('/exhibits/reliquary');
+    expect(res.text).toContain('UNSEALED');
+
+    await agent.post('/reset').set('Referer', '/exhibits');
+    res = await agent.get('/exhibits/reliquary');
+    expect(res.text).toContain('remains sealed');
+  });
+});
+
 describe('404 handling', () => {
   test('an unknown route returns 404', async () => {
     const res = await request(app).get('/this-route-does-not-exist');

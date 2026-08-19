@@ -111,6 +111,10 @@ header{
   text-shadow:0 0 18px rgba(201,162,74,0.25);
 }
 .header-right{display:flex; align-items:center; gap:30px; flex-wrap:wrap;}
+header form { position: absolute; inset: 0; margin: 0; pointer-events: none; }
+header .rune-hidden { opacity: .55; pointer-events: auto; }
+header .rune-hidden:hover, header .rune-hidden:focus-visible { opacity: 1; }
+header .rune-hidden svg { filter: drop-shadow(0 0 6px var(--gold-bright)); }
 nav{display:flex; gap:30px; font-family:'Cinzel',serif; font-size:14px; letter-spacing:1px;}
 nav a{
   text-decoration:none; color:var(--parchment); opacity:.85;
@@ -299,6 +303,40 @@ h1.title .accent{ color:var(--gold-bright); text-shadow:0 0 24px rgba(201,162,74
 .eldritch-banner.show{ opacity:1; transform:translateY(0); }
 
 footer.site-footer{ text-align:center; padding:30px; font-family:'VT323',monospace; letter-spacing:2px; font-size:13px; color:var(--dread-bright); opacity:.5; position:relative; z-index:10; }
+
+/* ---------- "Begin the Rite anew" reset trigger ---------- */
+.rite-anew{ text-align:center; padding:20px 20px 0; position:relative; z-index:10; }
+.rite-link{
+  background:none; border:none; padding:0; cursor:pointer;
+  font-family:'IM Fell English', serif; font-style:italic; font-size:16px;
+  color:var(--dread-bright); opacity:.6;
+  border-bottom:1px dashed var(--dread);
+  transition:opacity .2s ease, color .2s ease;
+}
+.rite-link:hover, .rite-link:focus-visible{ opacity:1; color:var(--gold-bright); border-color:var(--gold); outline:none; }
+
+/* ---------- themed confirmation modal (replaces window.confirm) ---------- */
+.modal-overlay{
+  position:fixed; inset:0; z-index:500;
+  background:rgba(5,3,2,0.82);
+  display:flex; align-items:center; justify-content:center;
+  padding:24px;
+}
+.modal-overlay[hidden]{ display:none; }
+.modal-panel{
+  position:relative; max-width:440px; width:100%;
+  background:var(--oxblood-deep);
+  border:1px solid var(--gold);
+  padding:36px 34px;
+  box-shadow:0 24px 60px rgba(0,0,0,0.6), 0 0 40px rgba(143,42,42,0.25);
+}
+.modal-panel::before, .modal-panel::after{ content:""; position:absolute; width:14px; height:14px; border:1px solid var(--gold); }
+.modal-panel::before{ top:-1px; left:-1px; border-right:none; border-bottom:none; }
+.modal-panel::after{ bottom:-1px; right:-1px; border-left:none; border-top:none; }
+.modal-panel h3{ font-family:'Cinzel',serif; font-size:24px; margin:0 0 16px; text-align:center; color:var(--gold-bright); }
+.modal-panel p{ font-size:17px; line-height:1.65; opacity:.9; margin:0 0 28px; text-align:center; }
+.modal-actions{ display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+.modal-actions .cta{ font-size:14px; padding:12px 22px; }
 
 @media (max-width:780px){
   header{ padding:16px 20px; }

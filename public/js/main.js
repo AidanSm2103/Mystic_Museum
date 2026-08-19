@@ -57,8 +57,49 @@ function initDevToggle(){
   document.body.appendChild(btn);
 }
 
+// Replaces window.confirm() with a themed modal for the reset form.
+// If JS is disabled, the form just submits directly — no confirmation
+// step, but the site still works, same philosophy as the rest of the
+// hunt (progressive enhancement, not a hard dependency on JS).
+function initResetConfirm(){
+  const form = document.getElementById('reset-form');
+  const modal = document.getElementById('reset-modal');
+  if (!form || !modal) return;
+
+  const cancelBtn = document.getElementById('reset-cancel');
+  const confirmBtn = document.getElementById('reset-confirm');
+  let confirmed = false;
+
+  function openModal(){ modal.hidden = false; confirmBtn.focus(); }
+  function closeModal(){ modal.hidden = true; }
+
+  form.addEventListener('submit', (e) => {
+    if (!confirmed){
+      e.preventDefault();
+      openModal();
+    }
+  });
+
+  cancelBtn.addEventListener('click', closeModal);
+
+  confirmBtn.addEventListener('click', () => {
+    confirmed = true;
+    closeModal();
+    form.requestSubmit();
+  });
+
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) closeModal(); // click on the dark overlay itself
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !modal.hidden) closeModal();
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initDust();
   showFoundToast();
   initDevToggle();
+  initResetConfirm();
 });
