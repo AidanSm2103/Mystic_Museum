@@ -21,18 +21,6 @@ The Mystic Museum is a fictional archive of eight cursed artifacts, each sealed 
 
 This started as a static HTML/CSS/JS site and was rebuilt from the ground up as a learning project applying what I covered this year: Node, Express, EJS templating, MongoDB/Mongoose, and session-based state — with an emphasis on server-driven logic over client-side JavaScript.
 
-## 📑 Contents
-
-- [Tech Stack](#-tech-stack)
-- [Setup](#-setup)
-- [How the Scavenger Hunt Works](#-how-the-scavenger-hunt-works)
-- [The Collection](#-the-collection)
-- [Project Structure](#-project-structure)
-- [Testing](#-testing)
-- [Deployment](#-deployment)
-- [License](#-license)
-- [Author](#-author)
-
 ## 🛠️ Tech Stack
 
 | Layer | Technology |
