@@ -31,9 +31,9 @@ This started as a static HTML/CSS/JS site and was rebuilt from the ground up as 
 | Database | MongoDB + Mongoose |
 | Session state | express-session + connect-mongo |
 | Testing | Jest + Supertest |
-| Styling | Vanilla CSS (no framework) |
+| Styling | Vanilla CSS |
 
-## 🚀 Setup
+## 🚀 Local Setup
 
 1. `npm install`
 2. Copy `.env.example` to `.env` and fill in your own values (a local MongoDB URI works fine — see `MONGODB_URI` in `.env.example`)
