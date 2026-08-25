@@ -21,18 +21,6 @@ The Mystic Museum is a fictional archive of eight cursed artifacts, each sealed 
 
 This started as a static HTML/CSS/JS site and was rebuilt from the ground up as a learning project applying what I covered this year: Node, Express, EJS templating, MongoDB/Mongoose, and session-based state — with an emphasis on server-driven logic over client-side JavaScript.
 
-## 📑 Contents
-
-- [Tech Stack](#-tech-stack)
-- [Setup](#-setup)
-- [How the Scavenger Hunt Works](#-how-the-scavenger-hunt-works)
-- [The Collection](#-the-collection)
-- [Project Structure](#-project-structure)
-- [Testing](#-testing)
-- [Deployment](#-deployment)
-- [License](#-license)
-- [Author](#-author)
-
 ## 🛠️ Tech Stack
 
 | Layer | Technology |
@@ -43,9 +31,9 @@ This started as a static HTML/CSS/JS site and was rebuilt from the ground up as 
 | Database | MongoDB + Mongoose |
 | Session state | express-session + connect-mongo |
 | Testing | Jest + Supertest |
-| Styling | Vanilla CSS (no framework) |
+| Styling | Vanilla CSS |
 
-## 🚀 Setup
+## 🚀 Local Setup
 
 1. `npm install`
 2. Copy `.env.example` to `.env` and fill in your own values (a local MongoDB URI works fine — see `MONGODB_URI` in `.env.example`)
