@@ -13,7 +13,7 @@ const artifacts = [
     runeKey: 'rune1',
     teaser: 'A container that should be empty.',
     description:
-    "An ancient container. Rumors say it once held the remains of an ancient god, who's name is long forgotten, and that the reliquary has spent centuries trying to fill the void it left behind.",
+    "An ancient container. Rumors say it once held the remains of an ancient god, who's name has long since been forgotten, and that the reliquary has spent centuries trying to fill the void it left behind.",
     curatorNote:
       'I have weighed the reliquary three times this week. Each time it is heavier than the last, though nothing has been placed inside.'
   },
