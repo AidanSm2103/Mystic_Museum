@@ -91,24 +91,15 @@ header{
   gap:20px; flex-wrap:wrap;
 }
 .brand{display:flex; align-items:center; gap:14px; text-decoration:none;}
-.brand-ring{
-  width:38px; height:38px; border-radius:50%;
-  border:1.5px solid var(--gold);
-  box-shadow:0 0 12px rgba(201,162,74,0.35);
-  position:relative; flex-shrink:0;
+.brand-logo{
+  height:96px; width:auto; display:block;
+  margin:-20px 0; /* logo renders bigger than the header row itself; negative margin stops that extra height from pushing the header taller — it overflows visually instead */
+  filter:drop-shadow(0 0 8px rgba(201,162,74,0.2));
+  transition:filter .3s ease, transform .2s ease;
 }
-.brand-ring::after{
-  content:""; position:absolute; inset:6px;
-  border:1px solid rgba(143,42,42,0.6); border-radius:50%;
-}
-.wordmark{
-  font-family:'VT323', monospace;
-  font-size:28px; letter-spacing:3px;
-  background:linear-gradient(90deg,
-    var(--blood-accent),
-    color-mix(in srgb, var(--gold-bright) calc(100% - var(--wordmark-shift) * 100%), var(--dread-bright) calc(var(--wordmark-shift) * 100%)) 70%);
-  -webkit-background-clip:text; background-clip:text; color:transparent;
-  text-shadow:0 0 18px rgba(201,162,74,0.25);
+.brand:hover .brand-logo, .brand:focus-visible .brand-logo{
+  filter:drop-shadow(0 0 14px rgba(232,200,115,0.5));
+  transform:scale(1.02);
 }
 .header-right{display:flex; align-items:center; gap:30px; flex-wrap:wrap;}
 header form { position: absolute; inset: 0; margin: 0; pointer-events: none; }
@@ -137,7 +128,7 @@ nav a.active{ opacity:1; border-color:var(--gold); color:var(--gold-bright); }
   96%{ transform:translate(1px,-1px); }
   98%{ transform:translate(0,0); }
 }
-html[data-corruption="2"] .wordmark, html[data-corruption="3"] .wordmark, html[data-corruption="4"] .wordmark{
+html[data-corruption="2"] .brand-logo, html[data-corruption="3"] .brand-logo, html[data-corruption="4"] .brand-logo{
   animation:navglitch 4s infinite;
 }
 
