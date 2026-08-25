@@ -97,8 +97,41 @@ function initResetConfirm(){
   });
 }
 
+function eyeSVG(){
+  return `<svg viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg">
+    <path d="M2,15 Q30,-2 58,15 Q30,32 2,15 Z" fill="none" stroke="var(--dread-bright)" stroke-width="2"/>
+    <ellipse cx="30" cy="15" rx="3.2" ry="8" fill="var(--dread-bright)"/>
+  </svg>`;
+}
+ 
+function initEyes(){
+  const corruption = Number(document.documentElement.dataset.corruption || 0);
+  const counts = { 0: 0, 1: 0, 2: 3, 3: 7, 4: 16 };
+  const count = counts[corruption] || 0;
+  if (count === 0) return;
+ 
+  let layer = document.querySelector('.eyes-layer');
+  if (!layer){
+    layer = document.createElement('div');
+    layer.className = 'eyes-layer';
+    document.body.appendChild(layer);
+  }
+ 
+  for (let i = 0; i < count; i++){
+    const eye = document.createElement('div');
+    eye.className = 'eye';
+    eye.innerHTML = eyeSVG();
+    eye.style.left = (Math.random() * 92) + 'vw';
+    eye.style.top = (Math.random() * 88) + 'vh';
+    eye.style.animationDuration = (6 + Math.random() * 10) + 's';
+    eye.style.animationDelay = (Math.random() * 10) + 's';
+    layer.appendChild(eye);
+  }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initDust();
+  initEyes();
   showFoundToast();
   initDevToggle();
   initResetConfirm();

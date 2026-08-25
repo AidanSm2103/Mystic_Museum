@@ -64,8 +64,8 @@ a{color:inherit;}
 html[data-corruption="0"]{ --vignette-strength:0.75; --dust-opacity:0.35; --static-opacity:0; --wordmark-shift:0; --nav-glitch:0; }
 html[data-corruption="1"]{ --vignette-strength:0.8; --dust-opacity:0.45; --static-opacity:0.03; --wordmark-shift:0.15; --nav-glitch:0; }
 html[data-corruption="2"]{ --vignette-strength:0.85; --dust-opacity:0.55; --static-opacity:0.06; --wordmark-shift:0.35; --nav-glitch:1; }
-html[data-corruption="3"]{ --vignette-strength:0.92; --dust-opacity:0.65; --static-opacity:0.09; --wordmark-shift:0.6; --nav-glitch:1; }
-html[data-corruption="4"]{ --vignette-strength:1; --dust-opacity:0.8; --static-opacity:0.13; --wordmark-shift:1; --nav-glitch:1; }
+html[data-corruption="3"]{ --vignette-strength:0.95; --dust-opacity:0.7; --static-opacity:0.12; --wordmark-shift:0.6; --nav-glitch:1; }
+html[data-corruption="4"]{ --vignette-strength:1; --dust-opacity:0.9; --static-opacity:0.2; --wordmark-shift:1; --nav-glitch:1; }
 
 /* ---------- dust motes ---------- */
 .dust{position:fixed; inset:0; pointer-events:none; z-index:5; overflow:hidden;}
@@ -92,8 +92,8 @@ header{
 }
 .brand{display:flex; align-items:center; gap:14px; text-decoration:none;}
 .brand-logo{
-  height:96px; width:auto; display:block;
-  margin:-20px 0; /* logo renders bigger than the header row itself; negative margin stops that extra height from pushing the header taller — it overflows visually instead */
+  height:72px; width:auto; display:block;
+  margin:-14px 0; 
   filter:drop-shadow(0 0 8px rgba(201,162,74,0.2));
   transition:filter .3s ease, transform .2s ease;
 }
@@ -295,6 +295,24 @@ h1.title .accent{ color:var(--gold-bright); text-shadow:0 0 24px rgba(201,162,74
 
 footer.site-footer{ text-align:center; padding:30px; font-family:'VT323',monospace; letter-spacing:2px; font-size:13px; color:var(--dread-bright); opacity:.5; position:relative; z-index:10; }
 
+/* ---------- watching eyes (appear/intensify with corruption) ---------- */
+.eyes-layer{ position:fixed; inset:0; z-index:160; pointer-events:none; overflow:hidden; }
+.eye{
+  position:absolute;
+  width:30px; height:16px;
+  opacity:0;
+  animation-name:eyeBlink;
+  animation-iteration-count:infinite;
+  animation-timing-function:ease-in-out;
+}
+.eye svg{ width:100%; height:100%; overflow:visible; filter:drop-shadow(0 0 6px var(--dread-bright)); }
+@keyframes eyeBlink{
+  0%, 90%, 100% { opacity:0; transform:scaleY(.1); }
+  92% { opacity:.85; transform:scaleY(1); }
+  96% { opacity:.85; transform:scaleY(1); }
+  98% { opacity:0; transform:scaleY(.1); }
+}
+
 /* ---------- "Begin the Rite anew" reset trigger ---------- */
 .rite-anew{ text-align:center; padding:20px 20px 0; position:relative; z-index:10; }
 .rite-link{
@@ -343,4 +361,5 @@ footer.site-footer{ text-align:center; padding:30px; font-family:'VT323',monospa
   .card:hover .art-slot::before{ animation:none; }
   .wordmark{ animation:none !important; }
   .rune-hidden{ animation:none; }
+  .eye{ animation:none; display:none; }
 }
