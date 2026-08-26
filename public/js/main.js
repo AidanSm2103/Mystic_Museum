@@ -124,7 +124,7 @@ function initEyes(){
     eye.style.left = (Math.random() * 92) + 'vw';
     eye.style.top = (Math.random() * 88) + 'vh';
     eye.style.animationDuration = (6 + Math.random() * 10) + 's';
-    eye.style.animationDelay = (Math.random() * 10) + 's';
+    eye.style.animationDelay = (Math.random() * 3) + 's';
     layer.appendChild(eye);
   }
 }
