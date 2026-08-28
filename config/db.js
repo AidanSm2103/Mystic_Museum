@@ -1,8 +1,6 @@
 const mongoose = require('mongoose');
 
-// Centralising the connection here keeps server.js focused on wiring
-// up the app, and means anything else that needs a DB connection
-// (like seed.js) can reuse the same logic.
+// Centralising the connection here keeps server.js focused on wiring up the app
 async function connectDB() {
   if (!process.env.MONGODB_URI) {
     console.error('Missing MONGODB_URI in your .env file.');

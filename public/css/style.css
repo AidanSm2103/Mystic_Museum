@@ -132,7 +132,7 @@ html[data-corruption="2"] .brand-logo, html[data-corruption="3"] .brand-logo, ht
   animation:navglitch 4s infinite;
 }
 
-/* ---------- hidden runes (scavenger hunt hotspots — real <button>s inside <form>s) ---------- */
+/* ---------- hidden runes  ---------- */
 .rune-hidden{
   position:absolute;
   width:34px; height:34px;
@@ -147,16 +147,29 @@ html[data-corruption="2"] .brand-logo, html[data-corruption="3"] .brand-logo, ht
 .rune-hidden svg{ width:100%; height:100%; pointer-events:none; }
 @keyframes runepulse{ 0%,100%{ opacity:.22; } 50%{ opacity:.42; } }
 
-/* dev-only: makes every unfound rune fully visible with an outline, for testing the hunt */
+/* Makes every unfound rune fully visible with an outline, for testing the hunt */
 .dev-reveal .rune-hidden{ opacity:1 !important; outline:1px dashed var(--dread-bright); animation:none; }
 
 .dev-toggle{
-  position:fixed; bottom:16px; right:16px; z-index:400;
-  font-family:'VT323',monospace; font-size:14px; letter-spacing:1px;
+  position:fixed; top:50%; right:0; transform:translateY(-50%);
+  z-index:400;
+  font-family:'VT323',monospace; letter-spacing:1px;
   background:var(--void); color:var(--dread-bright);
-  border:1px solid var(--dread); padding:8px 14px; cursor:pointer;
+  border:1px solid var(--dread); border-right:none;
+  border-radius:6px 0 0 6px;
+  cursor:pointer;
+  font-size:12px;
+  padding:14px 6px;
+  writing-mode:vertical-rl;
+  text-orientation:mixed;
+  transition:color .2s ease, border-color .2s ease;
 }
-.dev-toggle:hover{ color:var(--gold-bright); border-color:var(--gold); }
+.dev-toggle.expanded{
+  writing-mode:horizontal-tb;
+  font-size:13px;
+  padding:10px 14px;
+}
+.dev-toggle:hover, .dev-toggle:focus-visible{ color:var(--gold-bright); border-color:var(--gold); outline:none; }
 
 /* ---------- toast ---------- */
 .toast{
@@ -295,7 +308,7 @@ h1.title .accent{ color:var(--gold-bright); text-shadow:0 0 24px rgba(201,162,74
 
 footer.site-footer{ text-align:center; padding:30px; font-family:'VT323',monospace; letter-spacing:2px; font-size:13px; color:var(--dread-bright); opacity:.5; position:relative; z-index:10; }
 
-/* ---------- watching eyes (appear/intensify with corruption) ---------- */
+/* ---------- watching eyes ---------- */
 .eyes-layer{ position:fixed; inset:0; z-index:160; pointer-events:none; overflow:hidden; }
 .eye{
   position:absolute;
@@ -324,7 +337,7 @@ footer.site-footer{ text-align:center; padding:30px; font-family:'VT323',monospa
 }
 .rite-link:hover, .rite-link:focus-visible{ opacity:1; color:var(--gold-bright); border-color:var(--gold); outline:none; }
 
-/* ---------- themed confirmation modal (replaces window.confirm) ---------- */
+/* ---------- themed confirmation modal ---------- */
 .modal-overlay{
   position:fixed; inset:0; z-index:500;
   background:rgba(5,3,2,0.82);

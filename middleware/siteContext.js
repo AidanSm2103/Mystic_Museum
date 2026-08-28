@@ -1,8 +1,6 @@
 const artifactService = require('../services/artifactService');
 
-// Progress is tracked per-session, not per-account — there's no login,
-// so "unlocked" just lives in the visitor's session for as long as
-// their cookie lasts.
+// Progress is tracked per-session, so "unlocked" just lives in the visitor's session for as long as their cookie lasts.
 function corruptionLevel(unlockedCount) {
   if (unlockedCount >= 8) return 4;
   if (unlockedCount >= 6) return 3;
@@ -25,8 +23,7 @@ module.exports = async function siteContext(req, res, next) {
 
     const unlockedCount = req.session.unlocked.length;
 
-    // res.locals is automatically available inside every EJS view
-    // rendered on this request, including included partials.
+    // Automatically available inside every EJS view rendered on this request, including included partials
     res.locals.artifacts = artifacts;
     res.locals.artifactsBySlug = artifactsBySlug;
     res.locals.totalArtifacts = artifacts.length;

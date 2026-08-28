@@ -1,11 +1,3 @@
-// ============================================================
-// This file is intentionally small. The scavenger hunt itself is
-// server logic now (see routes/unlock.js) — runes are real <form>
-// submissions, so the site works even with JS disabled. Everything
-// here is presentational: dust motes, a toast after a rune is found,
-// and a dev-only "show me the hotspots" helper.
-// ============================================================
-
 function initDust(){
   const layer = document.querySelector('.dust');
   if (!layer) return;
@@ -24,8 +16,7 @@ function initDust(){
   }
 }
 
-// After routes/unlock.js redirects back with ?found=<name>, show a
-// toast, then clean the query string out of the URL bar.
+// After routes/unlock.js redirects back with ?found=<name>, show a toast, then clean the query string out of the URL bar.
 function showFoundToast(){
   const params = new URLSearchParams(window.location.search);
   const found = params.get('found');
@@ -43,8 +34,7 @@ function showFoundToast(){
   window.history.replaceState({}, '', url);
 }
 
-// dev-only: outlines every rune hotspot so you can find them while
-// building/testing. Safe to delete this whole function before shipping.
+// Outlines every rune hotspot so you can find them while
 function initDevToggle(){
   const btn = document.createElement('button');
   btn.className = 'dev-toggle';
@@ -52,15 +42,14 @@ function initDevToggle(){
   btn.textContent = 'SHOW RUNE HINTS';
   btn.addEventListener('click', () => {
     document.body.classList.toggle('dev-reveal');
-    btn.textContent = document.body.classList.contains('dev-reveal') ? 'HIDE RUNE HINTS' : 'SHOW RUNE HINTS';
+    const active = document.body.classList.contains('dev-reveal');
+    btn.textContent = active ? 'HIDE RUNE HINTS' : 'SHOW RUNE HINTS';
+    btn.classList.toggle('expanded', active);
   });
   document.body.appendChild(btn);
 }
 
 // Replaces window.confirm() with a themed modal for the reset form.
-// If JS is disabled, the form just submits directly — no confirmation
-// step, but the site still works, same philosophy as the rest of the
-// hunt (progressive enhancement, not a hard dependency on JS).
 function initResetConfirm(){
   const form = document.getElementById('reset-form');
   const modal = document.getElementById('reset-modal');

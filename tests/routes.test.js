@@ -1,10 +1,4 @@
-// These tests mock artifactService entirely — they check that the
-// routes, middleware, and views work together correctly, without
-// needing a real MongoDB connection. That's a deliberate scope
-// choice: it keeps tests fast and runnable anywhere (including CI),
-// at the cost of not proving the Mongoose queries themselves are
-// correct. A separate integration test against a real test database
-// would be the next thing to add if this project grew.
+// These tests mock artifactService
 
 jest.mock('../services/artifactService');
 const artifactService = require('../services/artifactService');
@@ -74,7 +68,7 @@ describe('unlock flow', () => {
   });
 
   test('after unlocking, the artifact detail page renders as unsealed', async () => {
-    // request.agent persists cookies across requests, like a real browser session
+    // request.agent persists cookies across requests like a real browser session
     const agent = request.agent(app);
     await agent.post('/unlock/reliquary').set('Referer', '/exhibits');
     const res = await agent.get('/exhibits/reliquary');

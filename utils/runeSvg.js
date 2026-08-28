@@ -1,6 +1,4 @@
-// Each rune is just a handful of line coordinates in a 0-100 box.
-// Keeping the shapes here (rather than in MongoDB) means the DB only
-// stores content, not presentation.
+// Each rune is just a handful of line coordinates in a 0-100 box
 
 const RUNE_PATHS = {
   rune1: [[50, 10, 50, 90], [50, 40, 80, 15], [50, 40, 20, 15]],
