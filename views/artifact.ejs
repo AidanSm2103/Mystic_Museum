@@ -17,7 +17,16 @@
   <% if (unlocked) { %>
     <span class="detail-tag">SPECIMEN NO. <%= artifact.no %> — UNSEALED</span>
     <h2><%= artifact.name %></h2>
-    <div class="detail-art"><%- runeSVG(artifact.runeKey) %></div>
+    <div class="detail-art">
+      <% if (artifact.imageUrl) { %>
+        <img src="<%= artifact.imageUrl %>" alt="<%= artifact.name %>">
+      <% } else { %>
+        <%- runeSVG(artifact.runeKey) %>
+      <% } %>
+    </div>
+    <% if (artifact.imageUrl && artifact.imageCredit) { %>
+      <p class="image-credit"><%= artifact.imageCredit %></p>
+    <% } %>
     <p class="body-text"><%= artifact.description %></p>
     <a class="back-link" href="/exhibits">← Return to Exhibits</a>
   <% } else { %>

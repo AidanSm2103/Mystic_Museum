@@ -15,7 +15,9 @@ const artifacts = [
     description:
     "An ancient container. Rumors say it once held the remains of an ancient god, who's name has long since been forgotten, and that the reliquary has spent centuries trying to fill the void it left behind.",
     curatorNote:
-      'I have weighed the reliquary three times this week. Each time it is heavier than the last, though nothing has been placed inside.'
+      'I have weighed the reliquary three times this week. Each time it is heavier than the last, though nothing has been placed inside.',
+    imageUrl: '/images/reliquary.jpg',
+    imageCredit: 'The Metropolitan Museum of Art, CC0'
   },
   {
     slug: 'astrolabe',
@@ -26,8 +28,10 @@ const artifacts = [
     description:
       'A celestial instrument recovered from a collapsed observatory. Each inscribed star has not been visible from Earth for thousands of years, yet the astrolabe still tracks their movement, precisely.',
     curatorNote:
-      "The astrolabe's needle moved again last night. I checked the star charts. The star it points to burned out before written history began."
-  },
+      "The astrolabe's needle moved again last night. I checked the star charts. The star it points to burned out before written history began.",
+    imageUrl: '/images/astrolabe.jpg',
+    imageCredit: 'The Metropolitan Museum of Art, CC0'
+    },
   {
     slug: 'sigil',
     no: '003',
@@ -37,8 +41,10 @@ const artifacts = [
     description:
       'A carved symbol of unknown origin. Visitors who linger too close report a faint whispering, always in a language they cannot place, but somehow understand completely.',
     curatorNote:
-      'I no longer transcribe what the sigil says. Writing it down did not feel like documentation. It felt like writing my own obituary.'
-  },
+      'I no longer transcribe what the sigil says. Writing it down did not feel like documentation. It felt like writing my own obituary.',
+    imageUrl: '/images/sigil.jpg',
+    imageCredit: 'The Metropolitan Museum of Art, CC0'
+    },
   {
     slug: 'crown',
     no: '004',
@@ -48,8 +54,10 @@ const artifacts = [
     description:
       'A ceremonial crown, remarkably light for its craftsmanship. Records show no mention of kings or queens that adorned the crown, yet it shows signs of having been worn for millennia.',
     curatorNote:
-      'I tried the crown on for eleven seconds. I do not remember doing this. The photograph is the only proof that I did.'
-  },
+      'I tried the crown on for eleven seconds. I do not remember doing this. The photograph is the only proof that I did.',
+    imageUrl: '/images/crown.jpg',
+    imageCredit: 'The Metropolitan Museum of Art, CC0'
+    },
   {
     slug: 'ledger',
     no: '005',
@@ -59,8 +67,10 @@ const artifacts = [
     description:
       'A waterlogged account book, perpetually damp regardless of climate. Its entries are dated decades into the future, recording debts that have not yet been made by anyone alive.',
     curatorNote:
-      'My name appeared in the ledger this morning. The amount owed was left blank. I am choosing not to think about what that means.'
-  },
+      'My name appeared in the ledger this morning. The amount owed was left blank. I am choosing not to think about what that means.',
+    imageUrl: '/images/ledger.jpg',
+    imageCredit: 'The Metropolitan Museum of Art, CC0'
+    },
   {
     slug: 'loom',
     no: '006',
@@ -70,8 +80,10 @@ const artifacts = [
     description:
       'A loom built from charred, unburning wood. The threads it produces, examined closely, resemble strands of human hair. DNA analysis has confirmed that the hair is always from people who have already died.',
     curatorNote:
-      "The loom worked through the night, unattended. I found a new length of grey thread on the frame this morning. I wish that I hadn't discover my first grey hair on the same day."
-  },
+      "The loom worked through the night, unattended. I found a new length of grey thread on the frame this morning. I wish that I hadn't discover my first grey hair on the same day.",
+    imageUrl: '/images/loom.jpg',
+    imageCredit: 'The Metropolitan Museum of Art, CC0'
+    },
   {
     slug: 'mirror',
     no: '007',
@@ -81,8 +93,10 @@ const artifacts = [
     description:
       'A mirror ringed with a band of ancient, crystallized salt. Its reflection consistently lags behind reality by three seconds. Long enough to notice, never long enough to prove to anyone else.',
     curatorNote:
-      'I broke the salt ring to test a theory. I will not be repeating the experiment. The reflection has not caught up yet.'
-  },
+      'I broke the salt ring to test a theory. I will not be repeating the experiment. The reflection has not caught up yet.',
+    imageUrl: '/images/mirror.jpg',
+    imageCredit: 'The Metropolitan Museum of Art, CC0'
+    },
   {
     slug: 'ember',
     no: '008',
@@ -92,8 +106,10 @@ const artifacts = [
     description:
       'A single coal, warm to the touch, that has reportedly burned without fuel since its discovery. Those who hold it report brief, vivid memories that are not their own.',
     curatorNote:
-      'I held the ember for a moment. I remembered a child in a house I have never lived in. The house was burning.'
-  }
+      'I held the ember for a moment. I remembered a child in a house I have never lived in. The house was burning.',
+    imageUrl: '/images/ember.jpg',
+    imageCredit: 'The Metropolitan Museum of Art, CC0'
+    }
 ];
 
 async function seed() {

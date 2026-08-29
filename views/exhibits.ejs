@@ -20,21 +20,27 @@
 <div class="exhibits">
   <% artifacts.forEach(function(a) { %>
     <% if (isUnlocked(a.slug)) { %>
-      <a class="card" href="/exhibits/<%= a.slug %>">
-        <span class="card-tag">SPECIMEN NO. <%= a.no %></span>
-        <div class="art-slot"><%- runeSVG(a.runeKey) %></div>
-        <h3><%= a.name %></h3>
-        <p><%= a.teaser %></p>
-        <span class="view-link">VIEW ARTIFACT →</span>
-      </a>
-    <% } else { %>
-      <div class="card sealed">
-        <span class="card-tag">SPECIMEN NO. <%= a.no %></span>
-        <div class="art-slot"><%- runeSVG(a.runeKey) %></div>
-        <h3>SEALED</h3>
-        <p>A rune elsewhere in the museum still holds this closed.</p>
-      </div>
-    <% } %>
+  <a class="card" href="/exhibits/<%= a.slug %>">
+    <span class="card-tag">SPECIMEN NO. <%= a.no %></span>
+    <div class="art-slot">
+      <% if (a.imageUrl) { %>
+        <img src="<%= a.imageUrl %>" alt="<%= a.name %>" loading="lazy">
+      <% } else { %>
+        <%- runeSVG(a.runeKey) %>
+      <% } %>
+    </div>
+    <h3><%= a.name %></h3>
+    <p><%= a.teaser %></p>
+    <span class="view-link">VIEW ARTIFACT →</span>
+  </a>
+<% } else { %>
+  <div class="card sealed">
+    <span class="card-tag">SPECIMEN NO. <%= a.no %></span>
+    <div class="art-slot"><%- runeSVG(a.runeKey) %></div>
+    <h3>SEALED</h3>
+    <p>A rune elsewhere in the museum still holds this closed.</p>
+  </div>
+<% } %>
   <% }); %>
 </div>
 

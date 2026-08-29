@@ -33,6 +33,12 @@ const artifactSchema = new mongoose.Schema(
     curatorNote: {
       type: String,
       required: true
+    },
+    imageUrl: {
+      type: String
+    },
+    imageCredit: {
+      type: String
     }
   },
   { timestamps: true }
